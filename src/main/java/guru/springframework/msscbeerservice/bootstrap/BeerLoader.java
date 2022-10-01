@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
 
 /**
- * Created by jt on 2019-05-17.
+ * Optimized by Pierrot on 2022-10-01.
  */
 @Component
 public class BeerLoader implements CommandLineRunner {
@@ -20,7 +20,7 @@ public class BeerLoader implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
         loadBeerObjects();
     }
 
