@@ -1,4 +1,4 @@
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/PierreSQS/mssc-beer-service/tree/sect7.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/PierreSQS/mssc-beer-service/tree/sect7)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/PierreSQS/mssc-beer-service/tree/sect9-chap116-chap117.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/PierreSQS/mssc-beer-service/tree/sect9-chap116-chap117)
 
 # MSSC Beer Service
 
