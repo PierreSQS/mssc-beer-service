@@ -64,18 +64,20 @@ public class BeerServiceImpl implements BeerService {
                                     beerPage.getPageable().getPageSize()),
                     beerPage.getTotalElements());
         }
-
-
-
         return beerPagedList;
     }
 
 
     @Override
-    public BeerDto getById(UUID beerId) {
-        return beerMapper.beerToBeerDto(
-                beerRepository.findById(beerId).orElseThrow(NotFoundException::new)
-        );
+    public BeerDto getById(UUID beerId, Boolean showInventoryOnHand) {
+        Beer beer = beerRepository.findById(beerId).orElseThrow(NotFoundException::new);
+
+        if (Boolean.TRUE.equals(showInventoryOnHand)) {
+            return beerMapper.beerDtoToBeerWithInventory(beer);
+        } else {
+            return beerMapper.beerToBeerDto(beer);
+        }
+
     }
 
     @Override
