@@ -24,7 +24,7 @@ class BeerInventoryServiceRestTemplateImplTest {
     @Test
     void getOnhandInventory() {
         Integer qoh = beerInventoryService.getOnhandInventory(BeerLoader.BEER_1_UUID);
-        assertThat(qoh).isNotZero();
+        assertThat(qoh).isEqualTo(50);
 
         System.out.println(qoh);
 
