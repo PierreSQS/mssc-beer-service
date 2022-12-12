@@ -19,7 +19,7 @@ import org.springframework.util.StringUtils;
 import java.util.UUID;
 
 /**
- * Modified by Pierrot on 2022-12-10.
+ * Modified by Pierrot on 2022-12-12.
  */
 @Slf4j
 @RequiredArgsConstructor
@@ -88,6 +88,17 @@ public class BeerServiceImpl implements BeerService {
 
     }
 
+
+    @Cacheable(cacheNames = "beerCache", key = "#beerUpc")
+    @Override
+    public BeerDto getByUpc(String beerUpc) {
+        log.info("####### caching not used in getByUpc() #######");
+
+        Beer beer = beerRepository.findByUpc(beerUpc).orElseThrow(NotFoundException::new);
+
+        return beerMapper.beerToBeerDto(beer);
+    }
+
     @Override
     public BeerDto saveNewBeer(BeerDto beerDto) {
         return beerMapper.beerToBeerDto(beerRepository.save(beerMapper.beerDtoToBeer(beerDto)));
@@ -104,4 +115,5 @@ public class BeerServiceImpl implements BeerService {
 
         return beerMapper.beerToBeerDto(beerRepository.save(beer));
     }
+
 }

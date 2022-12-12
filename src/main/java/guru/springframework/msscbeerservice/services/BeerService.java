@@ -8,7 +8,7 @@ import org.springframework.data.domain.PageRequest;
 import java.util.UUID;
 
 /**
- * Created by jt on 2019-06-06.
+ * Extended by Pierrot on 2022-12-12.
  */
 public interface BeerService {
     BeerPagedList listBeers(String beerName, BeerStyleEnum beerStyle, PageRequest pageRequest,Boolean showInventoryOnHand);
@@ -18,4 +18,6 @@ public interface BeerService {
     BeerDto saveNewBeer(BeerDto beerDto);
 
     BeerDto updateBeer(UUID beerId, BeerDto beerDto);
+
+    BeerDto getByUpc(String beerUpc);
 }

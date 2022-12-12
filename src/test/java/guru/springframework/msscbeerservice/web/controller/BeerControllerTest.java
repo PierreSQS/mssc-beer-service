@@ -15,8 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.math.BigDecimal;
 import java.util.UUID;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyBoolean;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -81,5 +80,13 @@ class BeerControllerTest {
                 .price(new BigDecimal("2.99"))
                 .upc(BeerLoader.BEER_1_UPC)
                 .build();
+    }
+
+    @Test
+    void getBeerByUPCWithoutInventory() throws Exception {
+        given(beerService.getByUpc(anyString())).willReturn(getValidBeerDto());
+        mockMvc.perform(get("/api/v1/beer/beerUpc/{upc}",BeerLoader.BEER_1_UPC))
+                .andExpect(status().isOk())
+                .andDo(print());
     }
 }
