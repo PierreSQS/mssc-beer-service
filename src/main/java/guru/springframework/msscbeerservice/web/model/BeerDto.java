@@ -12,11 +12,11 @@ import javax.validation.constraints.Null;
 import javax.validation.constraints.Positive;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 /**
- * Created by jt on 2019-05-12.
+ * Modified by Pierrot on 2022-12-12.
  */
 
 @Data
@@ -32,12 +32,12 @@ public class BeerDto implements Serializable {
     private Integer version;
 
     @Null
-    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ssZ", shape=JsonFormat.Shape.STRING)
-    private OffsetDateTime createdDate;
+    @JsonFormat(shape=JsonFormat.Shape.STRING)
+    private LocalDateTime createdDate;
 
     @Null
-    @JsonFormat(pattern="yyyy-MM-dd'T'HH:mm:ssZ", shape=JsonFormat.Shape.STRING)
-    private OffsetDateTime lastModifiedDate;
+    @JsonFormat(shape=JsonFormat.Shape.STRING)
+    private LocalDateTime lastModifiedDate;
 
     @NotBlank
     private String beerName;

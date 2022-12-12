@@ -6,9 +6,9 @@ import org.mapstruct.DecoratedWith;
 import org.mapstruct.Mapper;
 
 /**
- * Modified by Pierrot on 2022-12-09.
+ * Modified by Pierrot on 2022-12-12.
  */
-@Mapper(uses = {DateMapper.class})
+@Mapper
 @DecoratedWith(BeerMapperDecorator.class) // Decorator to get the onHandQuantity
 public interface BeerMapper {
 
